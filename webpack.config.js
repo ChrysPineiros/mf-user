@@ -1,3 +1,4 @@
+
 const { shareAll, withModuleFederationPlugin } = require('@angular-architects/module-federation/webpack');
 
  const moduleFederationConfig = withModuleFederationPlugin({
@@ -14,6 +15,6 @@ const { shareAll, withModuleFederationPlugin } = require('@angular-architects/mo
 
 });
 
-moduleFederationConfig.output.publicPath = 'http://localhost:4201/'
-
+//moduleFederationConfig.output.publicPath = 'http://localhost/mf-user/';
+moduleFederationConfig.output.publicPath = 'http://localhost:4201/';
 module.exports = moduleFederationConfig;
