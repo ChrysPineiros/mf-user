@@ -1,5 +1,5 @@
 
-const { shareAll, withModuleFederationPlugin } = require('@angular-architects/module-federation/webpack');
+const { shareAll, share, withModuleFederationPlugin } = require('@angular-architects/module-federation/webpack');
 
  const moduleFederationConfig = withModuleFederationPlugin({
 
@@ -9,9 +9,16 @@ const { shareAll, withModuleFederationPlugin } = require('@angular-architects/mo
         './UserModule': './src/app/user/user.module.ts',
     },
 
-    shared: {
+    /* shared: {
         ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
-    },
+    }, */
+    shared: share({
+        "@angular/core": { singleton: true, strictVersion: true },
+        "@angular/common": { singleton: true, strictVersion: true },
+        "@angular/router": { singleton: true, strictVersion: true },
+        "@angular/common/http": { singleton: true, strictVersion: true },
+        "@mycne/lib-design-system":  { singleton: true, strictVersion: true, requiredVersion: '0.0.9' },
+      }),
 
 });
 
