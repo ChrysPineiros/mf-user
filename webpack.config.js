@@ -6,7 +6,7 @@ const { shareAll, share, withModuleFederationPlugin } = require('@angular-archit
     name: 'mfUser',
 
     exposes: {
-        './UserModule': './src/app/user/user.module.ts',
+        './UserModule': './src/presentation/app/user/user.module.ts',
     },
 
     /* shared: {
@@ -14,10 +14,10 @@ const { shareAll, share, withModuleFederationPlugin } = require('@angular-archit
     }, */
     shared: share({
         "@angular/core": { singleton: true, strictVersion: true },
-        "@angular/common": { singleton: true, strictVersion: true },
+        //"@angular/common": { singleton: true, strictVersion: true },
         "@angular/router": { singleton: true, strictVersion: true },
         "@angular/common/http": { singleton: true, strictVersion: true },
-        "@mycne/lib-design-system":  { singleton: true, strictVersion: true, requiredVersion: '0.0.9' },
+        "@mycne/lib-design-system":  { singleton: true, strictVersion: true, requiredVersion: '0.0.11' },
       }),
 
 });
